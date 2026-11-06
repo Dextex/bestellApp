@@ -10,3 +10,33 @@ header {
   background-color: rgba(231, 108, 31, 1);
   color: white;
 }
+
+.takeout_dining {
+  width: 32px;
+  height: 35px;
+}
+
+.header_content {
+  display: flex;
+  justify-content: space-between;
+
+  height: 100%;
+  padding: 18px 16px;
+}
+
+.header_left_side {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+header p {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 120%;
+}
+header span {
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 80%;
+}
