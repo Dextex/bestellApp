@@ -40,3 +40,19 @@ header span {
   font-size: 26px;
   line-height: 80%;
 }
+
+.hero_section {
+}
+
+.hero_image {
+  width: 343px;
+  height: 346px;
+  border-radius: 16px;
+  background-image: url(./assets/img/hero_photo.jpg);
+  background-size: auto 150%;
+  background-repeat: no-repeat;
+  background-position: 25% 100%;
+  /* object-fit: cover; */
+  /* object-position: 9% 50%;
+  transform-origin: 50% 100%; */
+}
