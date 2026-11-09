@@ -63,7 +63,7 @@
 h1 {
   font-family: "Palanquin Dark";
   font-size: 40px;
-  font-weight: 700px;
+  font-weight: 700;
   line-height: 120%;
   text-align: center;
 }
@@ -71,10 +71,17 @@ h1 {
 h2 {
   font-family: "Palanquin";
   font-size: 32px;
-  font-weight: 700px;
+  font-weight: 700;
   line-height: 120%;
   text-align: center;
   color: white;
+}
+
+h3 {
+  font-family: "Palanquin";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 120%;
 }
 
 h1 > span {
@@ -105,5 +112,19 @@ h1 > span {
   font-family: "Palanquin";
   font-weight: 400;
   font-size: 18px;
+  line-height: 120%;
+}
+
+.pricing > p {
+  font-family: "Palanquin";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.meal_information > p {
+  font-family: "Palanquin";
+  font-weight: 500;
+  font-size: 16px;
   line-height: 120%;
 }
