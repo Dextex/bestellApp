@@ -1,3 +1,7 @@
+:root {
+  --logo_width_height: 120px;
+}
+
 * {
   margin: 0px;
   box-sizing: border-box;
@@ -41,11 +45,17 @@ header span {
   line-height: 80%;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 20px;
+}
+
 .hero_section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 20px;
 }
 
 .hero_image {
@@ -57,7 +67,7 @@ header span {
   background-size: auto 150%;
   background-repeat: no-repeat;
   background-position: 25% 100%;
-}
+  margin-bottom: calc(var(--logo_width_height) / 2);
 
 .logo {
   position: absolute;
