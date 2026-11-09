@@ -45,9 +45,11 @@ header span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 20px;
 }
 
 .hero_image {
+  position: relative;
   width: 303px;
   height: 306px;
   border-radius: 16px;
@@ -55,7 +57,17 @@ header span {
   background-size: auto 150%;
   background-repeat: no-repeat;
   background-position: 25% 100%;
-  /* object-fit: cover; */
-  /* object-position: 9% 50%;
-  transform-origin: 50% 100%; */
+}
+
+.logo {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: white solid 13px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  object-fit: cover;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
 }
