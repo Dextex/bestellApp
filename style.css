@@ -68,7 +68,7 @@ main {
   background-repeat: no-repeat;
   background-position: 25% 100%;
   margin-bottom: calc(var(--logo_width_height) / 2);
-
+}
 .logo {
   position: absolute;
   width: 120px;
