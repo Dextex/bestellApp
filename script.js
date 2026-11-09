@@ -7,19 +7,15 @@ const category = {
 function init() {
   let categoryHeadlinerRef = document.getElementById("categoryHeadline");
   let categoryList = Object.values(category);
-  // categoryHeadlinerRef.innerHTML = createCategoryHeadlines(categoryList);
 
   for (let indexCategory = 0; indexCategory < Object.values(category).length; indexCategory++) {
     let currentList = filterArrayOnCategory(indexCategory);
     categoryHeadlinerRef.innerHTML += createCategoryHeadlines(categoryList, indexCategory);
     for (let dishIndex = 0; dishIndex < currentList.length; dishIndex++) {
-      categoryHeadlinerRef.innerHTML += createMeals();
+      categoryHeadlinerRef.innerHTML += createMeals(dishIndex, currentList);
     }
     console.log(currentList);
   }
-  // for (let index = 0; index < myDishes.length; index++) {
-  //   console.log(index);
-  // }
 }
 
 function filterArrayOnCategory(i) {
@@ -38,25 +34,25 @@ function createCategoryHeadlines(category, i) {
         `;
 }
 
-function createMeals() {
+function createMeals(i, currentList) {
   return `
           <section>
             <div class="meal_component">
             <div class="meal_information_container">
             <figure>
               <img
-                src="./assets/img/veggie-mushdroom-black-burger.jpg"
+                src="./assets/img/${currentList[i].img}"
                 alt="Ein Veggie Bürger der Schwarz ist und aus Mushrooms gemacht ist"
               />
             </figure>
 
             <div class="meal_information">
-              <h3>Veggie mushroom black burger</h3>
-              <p>Chicken, Mozzarella, Gorgonzola, Fontina, Parmigiano Reggiano</p>
+              <h3>${currentList[i].name}</h3>
+              <p>${currentList[i].description}</p>
             </div>
           </div>
           <div class="pricing">
-            <p>16,90€</p>
+            <p>${currentList[i].price}€</p>
             <button>Add to basket</button>
           </div>
         </div>
