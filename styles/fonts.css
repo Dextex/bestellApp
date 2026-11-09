@@ -51,3 +51,12 @@
   font-family: "Palanquin";
   font-size: 16px;
 }
+
+h2 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 120%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: rgba(54, 53, 52, 1);
+}
