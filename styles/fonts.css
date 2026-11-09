@@ -68,6 +68,15 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-family: "Palanquin";
+  font-size: 32px;
+  font-weight: 700px;
+  line-height: 120%;
+  text-align: center;
+  color: white;
+}
+
 h1 > span {
   font-family: "Palanquin Dark";
   font-size: 40px;
@@ -77,7 +86,7 @@ h1 > span {
   color: rgba(231, 108, 31, 1);
 }
 
-h2 {
+.headline > p {
   font-size: 22px;
   font-weight: 700;
   line-height: 120%;

@@ -114,3 +114,24 @@ section {
   align-items: center;
   justify-content: center;
 }
+
+.category_headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 60px;
+  background-color: rgba(231, 108, 31, 1);
+  margin-top: 40px;
+}
+
+.category_headline_section {
+  padding: 0;
+}
+
+.category_headline > img {
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  transform: translate(-50%, -80%);
+}
