@@ -142,3 +142,22 @@ nav {
   height: 78px;
   background-color: rgba(54, 53, 52, 1);
 }
+
+.shopping_car_wrapper {
+  position: relative;
+  display: flex;
+}
+
+.shopping_car_wrapper > p {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 0;
+  top: 15%;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

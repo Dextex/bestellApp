@@ -55,7 +55,7 @@ function createMeals(i, currentList) {
               </div>
             </div>
             <div class="pricing">
-              <p>${currentList[i].price}€</p>
+              <p>${currentList[i].price.toFixed(2).replace(".", ",")}€</p>
               <button>Add to basket</button>
             </div>
           </article>
