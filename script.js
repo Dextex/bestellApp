@@ -27,6 +27,24 @@ function filterArrayOnCategory(i) {
   return filterArray;
 }
 
+function changeButtonImg(button) {
+  const icon = button.querySelector("img");
+  const pfad = icon.src;
+  const letzterSlash = pfad.lastIndexOf("/");
+  const dateiname = pfad.slice(letzterSlash + 1);
+  const normalName = dateiname.replace(".svg", "-hover.svg");
+  icon.src = "./assets/icons/" + normalName;
+}
+function resetIcon(button) {
+  const icon = button.querySelector("img");
+  const pfad = icon.src;
+  const letzterSlash = pfad.lastIndexOf("/");
+  const dateiname = pfad.slice(letzterSlash + 1);
+  const normalName = dateiname.replace("-hover", "");
+
+  icon.src = "./assets/icons/" + normalName;
+}
+
 function openSection(i) {
   return `<section id=new_section_${i}>`;
 }

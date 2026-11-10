@@ -50,9 +50,15 @@
       </div>
     </footer>
     <nav class="mobile_controls">
-      <button><img src="./assets/icons/home.svg" alt="icon from a house" /></button>
-      <button><img src="./assets/icons/person.svg" alt="Person Icon" /></button>
-      <button><img src="./assets/icons/takeout_dining_2.png" alt="takeout dining icon" /></button>
+      <button onmouseover="changeButtonImg(this)" onmouseout="resetIcon(this)">
+        <img src="./assets/icons/home.svg" alt="icon from a house" />
+      </button>
+      <button onmouseover="changeButtonImg(this)" onmouseout="resetIcon(this)">
+        <img src="./assets/icons/person.svg" alt="Person Icon" />
+      </button>
+      <button onmouseover="changeButtonImg(this)" onmouseout="resetIcon(this)">
+        <img src="./assets/icons/takeout_dining_2.svg" alt="takeout dining icon" />
+      </button>
       <div class="shopping_car_wrapper">
         <p>3</p>
         <button><img src="./assets/icons/shopping_cart.svg" alt="shopping car icon" /></button>
