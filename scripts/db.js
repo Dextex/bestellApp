@@ -111,3 +111,5 @@ myDishes = [
     img: "vergan-green-salad-with-tofu.jpg",
   },
 ];
+
+shoppingCar = [];

@@ -1,0 +1,78 @@
+dialog {
+  background-color: rgba(54, 53, 52, 1);
+  width: calc(100% - 2 * 10px);
+  max-width: 440px;
+  height: auto;
+  overflow-y: auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  z-index: 1;
+}
+
+.dialog_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ul {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  width: 100%;
+  padding: 16px;
+  border-radius: 20px;
+}
+
+li > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.meal_count_wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+ul img {
+  height: 16px;
+  width: 16px;
+  /* transform: translateY(1px); */
+}
+
+ul button {
+  height: 30px;
+  padding: 0px;
+}
+
+.summary div {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.summary button {
+  display: block;
+  margin-inline: auto;
+  background-color: rgba(231, 108, 31, 1);
+  border-radius: 60px;
+  padding: 12px 24px;
+  max-width: 230px;
+  width: 100%;
+}

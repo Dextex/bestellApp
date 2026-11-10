@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestell App</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/mealComponent.css" />
+    <link rel="stylesheet" href="./styles/dialog.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
     <script src="./scripts/db.js"></script>
     <script src="script.js"></script>
   </head>
@@ -39,6 +40,40 @@
         <p>The best of Burgers, Pizza, and Greens, all in one great place.</p>
       </section>
     </main>
+    <dialog open>
+      <div class="dialog_wrapper">
+        <h2>Your Basket</h2>
+        <ul>
+          <li>
+            <h3>1x Veggie mushroom black burger</h3>
+            <div>
+              <div class="meal_count_wrapper">
+                <button><img src="./assets/icons/delete.svg" alt="eine Mülltonne" /></button>
+                <p>1</p>
+                <button>+</button>
+              </div>
+              <p>16,90€</p>
+            </div>
+          </li>
+        </ul>
+        <section class="summary">
+          <div>
+            <p>Subtotal</p>
+            <p>36,70 €</p>
+          </div>
+          <div>
+            <p>Delivery fee</p>
+            <p>4,99 €</p>
+          </div>
+          <hr />
+          <div>
+            <p>Toal</p>
+            <p>41,69 €</p>
+          </div>
+          <button>Buy now (41,69€)</button>
+        </section>
+      </div>
+    </dialog>
     <footer>
       <div class="footer_wrapper">
         <p>Imprint</p>
@@ -49,6 +84,7 @@
         </div>
       </div>
     </footer>
+
     <nav class="mobile_controls">
       <button onmouseover="changeButtonImg(this)" onmouseout="resetIcon(this)">
         <img src="./assets/icons/home.svg" alt="icon from a house" />

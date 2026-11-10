@@ -151,3 +151,18 @@ footer {
   font-weight: 600;
   font-size: 12px;
 }
+
+ul p {
+  font-family: "Palanquin";
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.summary div {
+  color: white;
+  font-family: "Palanquin";
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 120%;
+}
