@@ -166,3 +166,10 @@ ul p {
   font-weight: 600;
   line-height: 120%;
 }
+.summary button {
+  color: white;
+  font-family: "Palanquin";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120%;
+}
