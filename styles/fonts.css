@@ -128,3 +128,12 @@ h1 > span {
   font-size: 16px;
   line-height: 120%;
 }
+
+footer {
+  font-family: "Palanquin";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 120%;
+  text-align: center;
+  color: white;
+}

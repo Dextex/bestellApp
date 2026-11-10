@@ -114,3 +114,31 @@ section {
   align-items: center;
   justify-content: center;
 }
+
+footer {
+  height: 128px;
+  background-color: rgba(231, 108, 31, 1);
+}
+
+.footer_wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.copyright {
+  display: flex;
+  gap: 4px;
+}
+
+nav {
+  display: flex;
+  position: sticky;
+  bottom: 0px;
+  justify-content: space-around;
+  height: 78px;
+  background-color: rgba(54, 53, 52, 1);
+}
