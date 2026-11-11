@@ -47,12 +47,31 @@ function resetIcon(button) {
 
 function openModal() {
   const basketDialogRef = document.getElementById("basketDialog");
+  const mealListRef = document.getElementById("mealList");
+  let basket = ``;
+  for (let index = 0; index < shoppingCar.length; index++) {
+    basket += createBasketList(index);
+  }
+  mealListRef.innerHTML = basket;
   basketDialogRef.showModal();
 }
 
 function closeModal() {
   const basketDialogRef = document.getElementById("basketDialog");
   basketDialogRef.close();
+}
+
+function addMeal(mealID, buttonRef) {
+  let meal = myDishes[mealID];
+  let position = shoppingCar.findIndex((element) => meal.id === element.id);
+  if (position == -1) {
+    meal.amount++;
+    shoppingCar.push(meal);
+  } else {
+    shoppingCar[position].amount++;
+  }
+  buttonRef.innerHTML = "Added 1";
+  buttonRef.classList.add("orange_button_text");
 }
 
 function openSection(i) {
@@ -84,25 +103,25 @@ function createMeals(i, currentList) {
             </div>
             <div class="pricing">
               <p>${currentList[i].price.toFixed(2).replace(".", ",")}€</p>
-              <button>Add to basket</button>
+              <button onclick="addMeal(${currentList[i].id}, this)">Add to basket</button>
             </div>
           </article>
       `;
 }
 
-function createBasketList() {
+function createBasketList(i) {
   return `
           <li>
-            <h3>1x Veggie mushroom black burger</h3>
+            <h3>${shoppingCar[i].name}</h3>
             <div>
               <div class="meal_count_wrapper">
                 <button>
                   <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
                 </button>
-                <p>1</p>
+                <p>${shoppingCar[i].amount}</p>
                 <button>+</button>
               </div>
-              <p>16,90€</p>
+              <p>${shoppingCar[i].price.toFixed(2).replace(".", ",")}</p>
             </div>
           </li>
   `;

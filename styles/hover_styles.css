@@ -3,3 +3,7 @@
   box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
   border: transparent;
 }
+
+.orange_button_text {
+  color: rgba(231, 108, 31, 1);
+}
