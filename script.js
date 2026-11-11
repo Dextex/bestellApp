@@ -48,11 +48,17 @@ function resetIcon(button) {
 function openModal() {
   const basketDialogRef = document.getElementById("basketDialog");
   const mealListRef = document.getElementById("mealList");
+  const subtotalRef = basketDialogRef.querySelector("#subtotal");
+  const totalRef = basketDialogRef.querySelector("#totalCost");
   let basket = ``;
   for (let index = 0; index < shoppingCar.length; index++) {
     basket += createBasketList(index);
   }
+  let subTotal = calcSubtotal();
+  let total = subTotal + 4.99;
   mealListRef.innerHTML = basket;
+  subtotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",");
+  totalRef.innerHTML = total.toFixed(2).replace(".", ",");
   basketDialogRef.showModal();
 }
 
@@ -72,6 +78,14 @@ function addMeal(mealID, buttonRef) {
   }
   buttonRef.innerHTML = "Added 1";
   buttonRef.classList.add("orange_button_text");
+}
+
+function calcSubtotal() {
+  let subTotal = 0;
+  shoppingCar.forEach((element) => {
+    subTotal += element.price * element.amount;
+  });
+  return subTotal;
 }
 
 function openSection(i) {
