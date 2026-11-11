@@ -117,6 +117,7 @@ section {
 
 footer {
   height: 128px;
+  margin-top: 32px;
   background-color: rgba(231, 108, 31, 1);
 }
 

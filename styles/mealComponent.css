@@ -4,6 +4,13 @@
   padding: 10px;
   gap: 16px;
   border-radius: 12px;
+  background-color: rgba(253, 234, 220, 1);
+}
+
+.meal_section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .pricing {
@@ -18,15 +25,20 @@ button {
   font-size: 16px;
   font-weight: 600;
   line-height: 120%;
-  background-color: transparent;
   border: transparent;
+  background-color: transparent;
 }
 
-.meal_component {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.meal_component button {
+  font-family: "Palanquin";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  border: transparent;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
 }
+
 .meal_component img {
   width: 100%;
   height: 80px;

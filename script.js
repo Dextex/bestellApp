@@ -56,7 +56,7 @@ function closeModal() {
 }
 
 function openSection(i) {
-  return `<section id=new_section_${i}>`;
+  return `<section class="meal_section" id=new_section_${i}>`;
 }
 
 function createCategoryHeadlines(category, i) {
@@ -88,4 +88,22 @@ function createMeals(i, currentList) {
             </div>
           </article>
       `;
+}
+
+function createBasketList() {
+  return `
+          <li>
+            <h3>1x Veggie mushroom black burger</h3>
+            <div>
+              <div class="meal_count_wrapper">
+                <button>
+                  <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
+                </button>
+                <p>1</p>
+                <button>+</button>
+              </div>
+              <p>16,90€</p>
+            </div>
+          </li>
+  `;
 }
