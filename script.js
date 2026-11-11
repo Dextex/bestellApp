@@ -45,6 +45,16 @@ function resetIcon(button) {
   icon.src = "./assets/icons/" + normalName;
 }
 
+function openModal() {
+  const basketDialogRef = document.getElementById("basketDialog");
+  basketDialogRef.showModal();
+}
+
+function closeModal() {
+  const basketDialogRef = document.getElementById("basketDialog");
+  basketDialogRef.close();
+}
+
 function openSection(i) {
   return `<section id=new_section_${i}>`;
 }
