@@ -3,7 +3,6 @@ dialog {
   width: calc(100% - 2 * 10px);
   max-width: 440px;
   height: auto;
-  overflow-y: auto;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   z-index: 1;
@@ -13,6 +12,7 @@ dialog {
   margin: auto auto 78px auto;
   height: 660px;
   padding: 0px;
+  overflow-y: hidden;
 }
 
 dialog[open] {
@@ -24,7 +24,7 @@ dialog[open] {
   height: 20px;
   width: 20px;
   position: absolute;
-  left: 90%;
+  right: 10%;
   top: 5%;
 }
 
@@ -44,6 +44,8 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
+  max-height: 380px;
 }
 
 li {
@@ -53,6 +55,8 @@ li {
   gap: 8px;
   list-style: none;
   width: 100%;
+  max-height: 120px;
+  min-height: 120px;
   padding: 16px;
   border-radius: 20px;
 }
@@ -99,4 +103,8 @@ ul button {
   padding: 12px 24px;
   max-width: 240px;
   width: 100%;
+}
+
+dialog h3 {
+  padding-right: 20px;
 }

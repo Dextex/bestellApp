@@ -29,6 +29,16 @@ button {
   background-color: transparent;
 }
 
+li {
+  position: relative;
+}
+
+li > button {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+}
+
 .meal_component button {
   font-family: "Palanquin";
   font-size: 16px;

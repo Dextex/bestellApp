@@ -52,19 +52,51 @@ function openModal() {
   const totalRef = basketDialogRef.querySelector("#totalCost");
   let basket = ``;
   for (let index = 0; index < shoppingCar.length; index++) {
-    basket += createBasketList(index);
+    let buttonLefFromAmount =
+      shoppingCar[index].amount == 1
+        ? `<button onclick="deleteMeal(${index})">
+          <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
+        </button>`
+        : `<button onclick="subMeal(${index})">-</button>`;
+
+    let trashButtonTopRight = ``;
+    if (shoppingCar[index].amount > 1) {
+      trashButtonTopRight = `
+                              <button id="trashButtonTopRight" onclick="deleteMeal(${index})">
+                                <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
+                              </button>
+                            `;
+    }
+    basket += createBasketList(index, buttonLefFromAmount, trashButtonTopRight);
   }
   let subTotal = calcSubtotal();
   let total = subTotal + 4.99;
   mealListRef.innerHTML = basket;
-  subtotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",");
-  totalRef.innerHTML = total.toFixed(2).replace(".", ",");
+  subtotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",") + "€";
+  totalRef.innerHTML = total.toFixed(2).replace(".", ",") + "€";
   basketDialogRef.showModal();
+}
+
+function deleteMeal(index) {
+  shoppingCar.splice(index, 1);
+  openModal();
 }
 
 function closeModal() {
   const basketDialogRef = document.getElementById("basketDialog");
   basketDialogRef.close();
+}
+
+function addMealInBasket(mealID) {
+  let meal = myDishes[mealID];
+  let position = shoppingCar.findIndex((element) => meal.id === element.id);
+  if (position == -1) {
+    meal.amount++;
+    shoppingCar.push(meal);
+  } else {
+    shoppingCar[position].amount++;
+  }
+  openModal();
 }
 
 function addMeal(mealID, buttonRef) {
@@ -78,6 +110,11 @@ function addMeal(mealID, buttonRef) {
   }
   buttonRef.innerHTML = "Added 1";
   buttonRef.classList.add("orange_button_text");
+}
+
+function subMeal(index) {
+  shoppingCar[index].amount--;
+  openModal();
 }
 
 function calcSubtotal() {
@@ -123,19 +160,18 @@ function createMeals(i, currentList) {
       `;
 }
 
-function createBasketList(i) {
+function createBasketList(i, buttonLefFromAmount, trashButtonTopRight) {
   return `
           <li>
+            ${trashButtonTopRight}
             <h3>${shoppingCar[i].name}</h3>
             <div>
               <div class="meal_count_wrapper">
-                <button>
-                  <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
-                </button>
+                  ${buttonLefFromAmount}
                 <p>${shoppingCar[i].amount}</p>
-                <button>+</button>
+                <button onclick="(addMealInBasket(${shoppingCar[i].id}))">+</button>
               </div>
-              <p>${shoppingCar[i].price.toFixed(2).replace(".", ",")}</p>
+              <p>${shoppingCar[i].price.toFixed(2).replace(".", ",")}€</p>
             </div>
           </li>
   `;
