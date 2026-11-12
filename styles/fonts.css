@@ -173,3 +173,8 @@ ul p {
   font-weight: 700;
   line-height: 120%;
 }
+dialog li h3 {
+  font-size: clamp(18px, calc(80% + 2px), 22px);
+  line-height: 1.2;
+  overflow: hidden;
+}
