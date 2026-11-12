@@ -92,21 +92,41 @@ function openModal() {
   let buyButtonRef = document.getElementById("buyButton");
   buyButtonRef.innerHTML = `Buy now (${total.toFixed(2).replace(".", ",") + "€"})`;
   basketDialogRef.showModal();
+  basketDialogRef.classList.remove("is-hide");
+  basketDialogRef.classList.add("is-visible");
 }
 
 function deleteMeal(index) {
+  const id = shoppingCar[index].id;
+  const button = document.getElementById(id);
+  button.textContent = "Add to basket";
+  button.classList.remove("orange_button_text");
   shoppingCar[index].amount = 0;
   shoppingCar.splice(index, 1);
   openModal();
+  setCountOnCartIcon();
 }
 
 function closeModal(id) {
   const modal = document.getElementById(id);
-  modal.close();
+  if (id === "basketDialog") {
+    modal.classList.remove("is-visible");
+    modal.classList.add("is-hide");
+  } else if (id === "orderDialog") {
+    modal.classList.remove("is-visible");
+    modal.classList.add("is-hide");
+  }
+  modal.addEventListener(
+    "animationend",
+    () => {
+      modal.close();
+    },
+    { once: true },
+  );
 }
 
 function addMealInBasket(mealID) {
-  let meal = myDishes[mealID];
+  let meal = structuredClone(myDishes[mealID]);
   let position = shoppingCar.findIndex((element) => meal.id === element.id);
   if (position == -1) {
     meal.amount++;
@@ -119,7 +139,7 @@ function addMealInBasket(mealID) {
 }
 
 function addMeal(mealID, buttonRef) {
-  let meal = myDishes[mealID];
+  let meal = structuredClone(myDishes[mealID]);
   let position = shoppingCar.findIndex((element) => meal.id === element.id);
   if (position == -1) {
     meal.amount++;
@@ -135,6 +155,8 @@ function addMeal(mealID, buttonRef) {
 function buy() {
   closeModal("basketDialog");
   const orderDialogRef = document.getElementById("orderDialog");
+  orderDialogRef.classList.remove("is-hide");
+  orderDialogRef.classList.add("is-visible");
   orderDialogRef.showModal();
   clearBasket();
   setCountOnCartIcon();
@@ -206,7 +228,7 @@ function createMeals(i, currentList) {
             </div>
             <div class="pricing">
               <p>${currentList[i].price.toFixed(2).replace(".", ",")}€</p>
-              <button onclick="addMeal(${currentList[i].id}, this)">Add to basket</button>
+              <button id=${currentList[i].id} onclick="addMeal(${currentList[i].id}, this)">Add to basket</button>
             </div>
           </article>
       `;
