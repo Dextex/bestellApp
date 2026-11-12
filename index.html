@@ -41,12 +41,18 @@
         <p>The best of Burgers, Pizza, and Greens, all in one great place.</p>
       </section>
     </main>
-    <dialog onclick="closeModal()" id="basketDialog">
+    <dialog onclick="closeModal('basketDialog')" id="basketDialog" class="basketDialog">
       <div onclick="event.stopPropagation()" class="dialog_wrapper">
-        <button onclick="closeModal()" class="close_button">
+        <button onclick="closeModal('basketDialog')" class="close_button">
           <img src="./assets/icons/close.svg" alt="Ein X" />
         </button>
         <h2>Your Basket</h2>
+
+        <div class="emptyContainer" id="emptyContainer">
+          <p class="empty_text">Nothing here yet. Go ahead and choose something delicious!</p>
+          <img src="./assets/icons/shopping_cart_white.svg" alt="Icon eines Einkaufswagen" />
+        </div>
+
         <ul id="mealList">
           <li>
             <h3>1x Veggie mushroom black burger</h3>
@@ -62,7 +68,7 @@
             </div>
           </li>
         </ul>
-        <section class="summary">
+        <section id="summary" class="summary">
           <div>
             <p>Subtotal</p>
             <p id="subtotal">36,70 €</p>
@@ -78,6 +84,22 @@
           </div>
           <button id="buyButton">Buy now (41,69€)</button>
         </section>
+      </div>
+    </dialog>
+    <dialog id="orderDialog" class="order_dialog" onclick="closeModal('orderDialog')" open>
+      <div onclick="event.stopPropagation()" class="order_dialog_wrapper">
+        <div>
+          <button onclick="closeModal('orderDialog')" class="order_close_button">
+            <img src="./assets/icons/close.svg" alt="Ein X" />
+          </button>
+        </div>
+        <div class="order_message">
+          <img src="./assets/img/car.png" alt="Ein Auto was fährt" />
+          <div>
+            <h2>Order confirmed!</h2>
+            <p>Your food is on the way!</p>
+          </div>
+        </div>
       </div>
     </dialog>
     <footer>

@@ -50,7 +50,20 @@ function openModal() {
   const mealListRef = document.getElementById("mealList");
   const subtotalRef = basketDialogRef.querySelector("#subtotal");
   const totalRef = basketDialogRef.querySelector("#totalCost");
+  const emptyContainerRef = document.getElementById("emptyContainer");
+  const summaryRef = document.getElementById("summary");
+
   let basket = ``;
+
+  if (shoppingCar.length == 0) {
+    emptyContainerRef.style.visibility = "visible";
+    emptyContainerRef.style.display = "flex";
+    summaryRef.style.display = "none";
+  } else {
+    emptyContainerRef.style.visibility = "hidden";
+    emptyContainerRef.style.display = "none";
+    summaryRef.style.display = "flex";
+  }
   for (let index = 0; index < shoppingCar.length; index++) {
     let buttonLefFromAmount =
       shoppingCar[index].amount == 1
@@ -86,9 +99,9 @@ function deleteMeal(index) {
   openModal();
 }
 
-function closeModal() {
-  const basketDialogRef = document.getElementById("basketDialog");
-  basketDialogRef.close();
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  modal.close();
 }
 
 function addMealInBasket(mealID) {

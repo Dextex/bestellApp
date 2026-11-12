@@ -178,3 +178,27 @@ dialog li h3 {
   line-height: 1.2;
   overflow: hidden;
 }
+
+.empty_text {
+  font-family: "Palanquin";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  text-align: center;
+  color: white;
+}
+
+.order_dialog_wrapper p {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 120%;
+  text-align: center;
+  color: rgba(253, 234, 220, 1);
+}
+.order_dialog_wrapper h2 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 120%;
+  text-align: center;
+  color: rgba(253, 234, 220, 1);
+}

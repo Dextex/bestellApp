@@ -1,4 +1,20 @@
-dialog {
+/* Dialog {
+  background-color: rgba(54, 53, 52, 1);
+  width: calc(100% - 2 * 10px);
+  max-width: 440px;
+  height: auto;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  z-index: 1;
+  border: none;
+  position: fixed;
+  bottom: 0;
+  margin: auto auto 78px auto;
+  height: 660px;
+  padding: 0px;
+  overflow-y: hidden;
+} */
+.basketDialog {
   background-color: rgba(54, 53, 52, 1);
   width: calc(100% - 2 * 10px);
   max-width: 440px;
@@ -15,7 +31,7 @@ dialog {
   overflow-y: hidden;
 }
 
-dialog[open] {
+.order_dialog dialog[open] {
   transform: translateY(0);
   transition: transform 300ms ease;
 }
@@ -53,6 +69,7 @@ li {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  justify-content: space-between;
   gap: 8px;
   list-style: none;
   width: 100%;
@@ -76,7 +93,6 @@ li > div {
 ul img {
   height: 16px;
   width: 16px;
-  /* transform: translateY(1px); */
 }
 
 ul button {
@@ -108,4 +124,57 @@ ul button {
 
 dialog h3 {
   padding-right: 20px;
+}
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.empty_text {
+  padding-top: 20px;
+}
+
+.emptyContainer img {
+  width: 64px;
+  height: 64px;
+}
+.order_dialog {
+  position: fixed;
+  max-width: 340px;
+  width: 98%;
+  height: 255px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 30px;
+  padding: 32px 32px 40px 32px;
+  background-color: rgba(54, 53, 52, 1);
+  border: none;
+}
+.order_dialog_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  align-items: center;
+}
+
+.order_message {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.order_message > img {
+  width: 80px;
+  height: 60px;
+}
+
+.order_dialog_wrapper > div {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
