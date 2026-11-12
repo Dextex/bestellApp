@@ -153,6 +153,7 @@ dialog h3 {
   padding: 32px 32px 40px 32px;
   background-color: rgba(54, 53, 52, 1);
   border: none;
+  overflow: hidden;
 }
 .order_dialog_wrapper {
   display: flex;

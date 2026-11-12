@@ -129,6 +129,17 @@ function addMeal(mealID, buttonRef) {
   buttonRef.classList.add("orange_button_text");
 }
 
+function buy() {
+  closeModal("basketDialog");
+  const orderDialogRef = document.getElementById("orderDialog");
+  orderDialogRef.showModal();
+  clearBasket();
+}
+
+function clearBasket() {
+  shoppingCar = [];
+}
+
 function subMeal(index) {
   shoppingCar[index].amount--;
   openModal();
