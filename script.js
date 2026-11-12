@@ -17,6 +17,7 @@ function init() {
       newSectionRef.innerHTML += createMeals(dishIndex, currentList);
     }
   }
+  setCountOnCartIcon();
 }
 
 function filterArrayOnCategory(i) {
@@ -113,6 +114,7 @@ function addMealInBasket(mealID) {
   } else {
     shoppingCar[position].amount++;
   }
+  setCountOnCartIcon();
   openModal();
 }
 
@@ -127,6 +129,7 @@ function addMeal(mealID, buttonRef) {
   }
   buttonRef.innerHTML = "Added 1";
   buttonRef.classList.add("orange_button_text");
+  setCountOnCartIcon();
 }
 
 function buy() {
@@ -134,6 +137,7 @@ function buy() {
   const orderDialogRef = document.getElementById("orderDialog");
   orderDialogRef.showModal();
   clearBasket();
+  setCountOnCartIcon();
 }
 
 function clearBasket() {
@@ -142,7 +146,19 @@ function clearBasket() {
 
 function subMeal(index) {
   shoppingCar[index].amount--;
+  setCountOnCartIcon();
   openModal();
+}
+
+function setCountOnCartIcon() {
+  const pRef = document.getElementById("mealCountOnShoppingCartIcon");
+  const count = calcMealCount();
+  if (count != 0) {
+    pRef.innerHTML = `${count}`;
+    pRef.style.visibility = "visible";
+  } else {
+    pRef.style.visibility = "hidden";
+  }
 }
 
 function calcSubtotal() {
@@ -151,6 +167,14 @@ function calcSubtotal() {
     subTotal += element.price * element.amount;
   });
   return subTotal;
+}
+
+function calcMealCount() {
+  let count = 0;
+  shoppingCar.forEach((element) => {
+    count += element.amount;
+  });
+  return count;
 }
 
 function openSection(i) {
