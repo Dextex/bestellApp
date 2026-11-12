@@ -67,6 +67,7 @@ function openModal() {
                               </button>
                             `;
     }
+
     basket += createBasketList(index, buttonLefFromAmount, trashButtonTopRight);
   }
   let subTotal = calcSubtotal();
@@ -74,10 +75,13 @@ function openModal() {
   mealListRef.innerHTML = basket;
   subtotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",") + "€";
   totalRef.innerHTML = total.toFixed(2).replace(".", ",") + "€";
+  let buyButtonRef = document.getElementById("buyButton");
+  buyButtonRef.innerHTML = `Buy now (${total.toFixed(2).replace(".", ",") + "€"})`;
   basketDialogRef.showModal();
 }
 
 function deleteMeal(index) {
+  shoppingCar[index].amount = 0;
   shoppingCar.splice(index, 1);
   openModal();
 }
