@@ -80,4 +80,17 @@
   .meal_component button {
     padding: 5px 9px;
   }
+
+  .mobile_controls {
+    display: none;
+  }
+
+  .footer_wrapper {
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 72px;
+    padding-bottom: 30px;
+    font-size: 18px;
+  }
 }
