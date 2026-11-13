@@ -1,0 +1,83 @@
+/* @media screen and (min-width: 375px) {
+    .dialog_footer {
+        gap: 56px;
+    }
+} */
+
+@media screen and (min-width: 375px) {
+  section {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero_image {
+    width: 100%;
+    height: 440px;
+    background-size: cover;
+    border-radius: 0px;
+  }
+  main {
+    padding-top: 0px;
+  }
+  .hero_section {
+    padding: 0px;
+  }
+  .logo {
+    width: 200px;
+    height: 200px;
+  }
+  .headline > div {
+    flex-direction: row-reverse;
+    margin-top: 20px;
+    align-items: flex-end;
+  }
+  .category_headline {
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 0px max(160px, calc(50% - 720px));
+  }
+  .category_headline > img {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: translate(0%, 0%);
+  }
+  h2 {
+    font-size: 40px;
+  }
+  header {
+    padding: 0px max(120px, calc(50% - 720px));
+  }
+  section {
+    padding: 0px max(120px, calc(50% - 720px));
+  }
+  .meal_component {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .meal_information_container {
+    display: flex;
+    gap: 16px;
+  }
+  .meal_component img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center 70%;
+    border-radius: 12px;
+  }
+  .pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 0px;
+    padding-bottom: 10px;
+  }
+  .meal_component button {
+    padding: 5px 9px;
+  }
+}

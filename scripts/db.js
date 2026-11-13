@@ -2,7 +2,7 @@ myDishes = [
   {
     id: 0,
     name: "Veggie mushroom black burger",
-    description: "Chicken, Mozzarella, Gorgonzola, Fontina,  Parmigiano Reggiano",
+    description: "Mixed green salad, Tomatoes, Edamame, Mushrooms",
     price: 16.9,
     amount: 0,
     category: "Burger",
