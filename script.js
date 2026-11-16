@@ -42,10 +42,24 @@ function addToBasket(mealID) {
   if (position == -1) {
     meal.amount++;
     shoppingCar.push(meal);
+    if (shoppingCar.length == 1) {
+      renderBasket();
+    } else {
+      appendBasketCard(shoppingCar.length - 1);
+    }
   } else {
     shoppingCar[position].amount++;
+    updateBasketCard(position);
   }
-  renderBasket();
+}
+
+function appendBasketCard(index) {
+  document.querySelectorAll(".basket_content ul").forEach((ul) => {
+    ul.insertAdjacentHTML("beforeend", createBasketList(index));
+    ul.scrollTop = ul.scrollHeight;
+  });
+  updateSummary();
+  setCountOnCartIcon();
 }
 
 function filterArrayOnCategory(i) {
