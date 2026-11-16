@@ -177,13 +177,13 @@ function createBasketList(i) {
 }
 
 function setCountOnCartIcon() {
-  const pRef = document.getElementById("mealCountOnShoppingCartIcon");
+  const cartCountRef = document.getElementById("mealCountOnShoppingCartIcon");
   const count = calcMealCount();
   if (count != 0) {
-    pRef.innerHTML = `${count}`;
-    pRef.style.visibility = "visible";
+    cartCountRef.innerHTML = `${count}`;
+    cartCountRef.style.visibility = "visible";
   } else {
-    pRef.style.visibility = "hidden";
+    cartCountRef.style.visibility = "hidden";
   }
 }
 
