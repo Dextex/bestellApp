@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/response.css" />
     <script src="./scripts/db.js"></script>
+    <script src="./scripts/template.js"></script>
     <script src="script.js"></script>
   </head>
   <body onload="init()">
@@ -46,28 +47,7 @@
         <div class="basket">
           <h2>Your Basket</h2>
           <div class="basket_content"></div>
-          <!-- <div class="emptyContainer" id="emptyContainer">
-            <p class="empty_text">Nothing here yet. Go ahead and choose something delicious!</p>
-            <img src="./assets/icons/shopping_cart_white.svg" alt="Icon eines Einkaufswagen" />
-          </div>
-          <ul id="mealList"></ul>
-          <section id="summary" class="summary">
-            <div>
-              <p>Subtotal</p>
-              <p id="subtotal">36,70 €</p>
-            </div>
-            <div>
-              <p>Delivery fee</p>
-              <p id="deliveryFee">4,99 €</p>
-            </div>
-            <hr />
-            <div>
-              <p>Toal</p>
-              <p id="totalCost">41,69 €</p>
-            </div>
-            <button onclick="buy()" id="buyButton">Buy now (41,69€)</button>
-          </section>
-        </div> -->
+         
       </section>
     </div>
     <dialog onclick="closeModal('basketDialog')" id="basketDialog" class="basketDialog">
@@ -77,28 +57,6 @@
         </button>
         <h2>Your Basket</h2>
         <div class="basket_content"></div>
-        <!-- <div class="emptyContainer" id="emptyContainer">
-          <p class="empty_text">Nothing here yet. Go ahead and choose something delicious!</p>
-          <img src="./assets/icons/shopping_cart_white.svg" alt="Icon eines Einkaufswagen" />
-        </div>
-
-        <ul id="mealList"></ul>
-        <section id="summary" class="summary">
-          <div>
-            <p>Subtotal</p>
-            <p id="subtotal">36,70 €</p>
-          </div>
-          <div>
-            <p>Delivery fee</p>
-            <p id="deliveryFee">4,99 €</p>
-          </div>
-          <hr />
-          <div>
-            <p>Toal</p>
-            <p id="totalCost">41,69 €</p>
-          </div>
-          <button onclick="buy()" id="buyButton">Buy now (41,69€)</button>
-        </section> -->
       </div>
     </dialog>
     <dialog id="orderDialog" class="order_dialog" onclick="closeModal('orderDialog')">
