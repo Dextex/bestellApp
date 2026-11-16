@@ -70,22 +70,10 @@ function filterArrayOnCategory(i) {
   return filterArray;
 }
 
-function changeButtonImg(button) {
+function setHoverIcon(button, isHover) {
   const icon = button.querySelector("img");
-  const pfad = icon.src;
-  const letzterSlash = pfad.lastIndexOf("/");
-  const dateiname = pfad.slice(letzterSlash + 1);
-  const normalName = dateiname.replace(".svg", "-hover.svg");
-  icon.src = "./assets/icons/" + normalName;
-}
-function resetIcon(button) {
-  const icon = button.querySelector("img");
-  const pfad = icon.src;
-  const letzterSlash = pfad.lastIndexOf("/");
-  const dateiname = pfad.slice(letzterSlash + 1);
-  const normalName = dateiname.replace("-hover", "");
-
-  icon.src = "./assets/icons/" + normalName;
+  const fileName = icon.src.split("/").pop().replace("-hover", "");
+  icon.src = "./assets/icons/" + (isHover ? fileName.replace(".svg", "-hover.svg") : fileName);
 }
 
 function closeModal(id) {
