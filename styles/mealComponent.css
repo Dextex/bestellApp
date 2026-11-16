@@ -68,7 +68,7 @@ li > button {
   flex-direction: column;
   gap: 8px;
 }
-.category_headline {
+/* .category_headline {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,11 +76,23 @@ li > button {
   height: 60px;
   background-color: rgba(231, 108, 31, 1);
   margin-top: 40px;
+} */
+.category_headline {
+  display: flex;
+  margin-top: 40px;
+  background-color: rgba(231, 108, 31, 1);
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 0 0 100vmax rgba(231, 108, 31, 1);
+  clip-path: inset(0 -100vmax);
 }
 
 .category_headline > img {
   position: absolute;
   left: 50%;
   top: 0%;
+
   transform: translate(-50%, -80%);
 }
