@@ -1,4 +1,4 @@
-myDishes = [
+let myDishes = [
   {
     id: 0,
     name: "Veggie mushroom black burger",
@@ -112,4 +112,4 @@ myDishes = [
   },
 ];
 
-shoppingCar = [];
+let shoppingCar = [];
