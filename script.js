@@ -94,13 +94,33 @@ function closeModal(id) {
 
 function addMeal(mealID, buttonRef) {
   addToBasket(mealID);
-  buttonRef.innerHTML = "Added 1";
+  buttonRef.innerHTML = "Add 1";
   buttonRef.classList.add("orange_button_text");
 }
 
 function subMeal(index) {
   shoppingCar[index].amount--;
-  renderBasket();
+  updateBasketCard(index);
+}
+
+function updateBasketCard(index) {
+  const meal = shoppingCar[index];
+  document.querySelectorAll(`[data-meal-id="${meal.id}"]`).forEach((card) => {
+    card.outerHTML = createBasketList(index);
+  });
+  updateSummary();
+  setCountOnCartIcon();
+}
+
+function updateSummary() {
+  const subTotal = calcSubtotal();
+  const total = subTotal + DELIVERY_FEE;
+  document.querySelectorAll(".subtotal_value").forEach((ref) => {
+    ref.textContent = formatPrice(subTotal);
+  });
+  document.querySelectorAll(".total_value").forEach((ref) => {
+    ref.textContent = formatPrice(total);
+  });
 }
 
 function deleteMeal(index) {

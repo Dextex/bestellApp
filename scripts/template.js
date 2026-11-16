@@ -46,18 +46,18 @@ function renderFilledBasket(mealListHtml, subTotal, DELIVERY_FEE, total) {
   return `
     <ul>${mealListHtml}</ul>
     <div class="summary">
-      <div><p>Subtotal</p><p>${formatPrice(subTotal)}</p></div>
+      <div><p>Subtotal</p><p class="subtotal_value">${formatPrice(subTotal)}</p></div>
       <div><p>Delivery fee</p><p>${formatPrice(DELIVERY_FEE)}</p></div>
       <hr />
-      <div><p>Total</p><p>${formatPrice(total)}</p></div>
-      <button onclick="buy()">Buy now (${formatPrice(total)})</button>
+      <div><p>Total</p><p class="total_value">${formatPrice(total)}</p></div>
+      <button class="total_value" onclick="buy()">Buy now (${formatPrice(total)})</button>
     </div>
   `;
 }
 
 function renderMealCardBasket(trashButtonTopRight, meal, buttonLeftFromAmount) {
   return `
-    <li>
+    <li data-meal-id="${meal.id}">
       ${trashButtonTopRight}
       <h3>${meal.name}</h3>
       <div>
