@@ -1,0 +1,9 @@
+:root {
+  --logo_width_height: 120px;
+}
+
+* {
+  margin: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}

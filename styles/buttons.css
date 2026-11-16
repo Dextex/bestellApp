@@ -1,0 +1,72 @@
+.meal_component button:hover {
+  color: rgba(231, 108, 31, 1);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+  border: transparent;
+}
+
+.orange_button_text {
+  color: rgba(231, 108, 31, 1);
+}
+
+nav button {
+  padding: 3px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: white;
+  border-radius: 5px;
+}
+
+button {
+  font-family: "Palanquin";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+li > button {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+}
+
+.meal_component button {
+  font-family: "Palanquin";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  border: transparent;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  width: 120px;
+  white-space: nowrap;
+}
+
+.close_button {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10%;
+  top: 5%;
+}
+
+ul button {
+  height: 30px;
+  width: 30px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+.summary button {
+  display: block;
+  margin-inline: auto;
+  background-color: rgba(231, 108, 31, 1);
+  border-radius: 60px;
+  padding: 12px 24px;
+  max-width: 240px;
+  width: 100%;
+}
