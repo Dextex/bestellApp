@@ -202,3 +202,6 @@ dialog li h3 {
   text-align: center;
   color: rgba(253, 234, 220, 1);
 }
+.basket_content h3 {
+  font-size: 20px;
+}
