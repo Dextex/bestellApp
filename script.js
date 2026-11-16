@@ -3,6 +3,7 @@ const category = {
   Pizza: "Pizza",
   Salad: "Salad",
 };
+const DELIVERY_FEE = 4.99;
 
 function init() {
   let categoryHeadlinerRef = document.getElementById("main");
@@ -17,7 +18,34 @@ function init() {
       newSectionRef.innerHTML += createMeals(dishIndex, currentList);
     }
   }
+  renderBasket();
+}
+
+function renderBasket() {
+  const html = shoppingCar.length == 0 ? createEmptyBasket() : createFilledBasket();
+  document.querySelectorAll(".basket_content").forEach((ref) => {
+    ref.innerHTML = html;
+  });
   setCountOnCartIcon();
+}
+
+function openModal() {
+  const basketDialogRef = document.getElementById("basketDialog");
+  basketDialogRef.showModal();
+  basketDialogRef.classList.remove("is-hide");
+  basketDialogRef.classList.add("is-visible");
+}
+
+function addToBasket(mealID) {
+  let meal = structuredClone(myDishes[mealID]);
+  let position = shoppingCar.findIndex((element) => meal.id === element.id);
+  if (position == -1) {
+    meal.amount++;
+    shoppingCar.push(meal);
+  } else {
+    shoppingCar[position].amount++;
+  }
+  renderBasket();
 }
 
 function filterArrayOnCategory(i) {
@@ -46,67 +74,6 @@ function resetIcon(button) {
   icon.src = "./assets/icons/" + normalName;
 }
 
-function openModal() {
-  const basketDialogRef = document.getElementById("basketDialog");
-  const mealListRef = document.getElementById("mealList");
-  const subtotalRef = basketDialogRef.querySelector("#subtotal");
-  const totalRef = basketDialogRef.querySelector("#totalCost");
-  const emptyContainerRef = document.getElementById("emptyContainer");
-  const summaryRef = document.getElementById("summary");
-
-  let basket = ``;
-
-  if (shoppingCar.length == 0) {
-    emptyContainerRef.style.visibility = "visible";
-    emptyContainerRef.style.display = "flex";
-    summaryRef.style.display = "none";
-  } else {
-    emptyContainerRef.style.visibility = "hidden";
-    emptyContainerRef.style.display = "none";
-    summaryRef.style.display = "flex";
-  }
-  for (let index = 0; index < shoppingCar.length; index++) {
-    let buttonLefFromAmount =
-      shoppingCar[index].amount == 1
-        ? `<button onclick="deleteMeal(${index})">
-          <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
-        </button>`
-        : `<button onclick="subMeal(${index})">-</button>`;
-
-    let trashButtonTopRight = ``;
-    if (shoppingCar[index].amount > 1) {
-      trashButtonTopRight = `
-                              <button id="trashButtonTopRight" onclick="deleteMeal(${index})">
-                                <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
-                              </button>
-                            `;
-    }
-
-    basket += createBasketList(index, buttonLefFromAmount, trashButtonTopRight);
-  }
-  let subTotal = calcSubtotal();
-  let total = subTotal + 4.99;
-  mealListRef.innerHTML = basket;
-  subtotalRef.innerHTML = subTotal.toFixed(2).replace(".", ",") + "€";
-  totalRef.innerHTML = total.toFixed(2).replace(".", ",") + "€";
-  let buyButtonRef = document.getElementById("buyButton");
-  buyButtonRef.innerHTML = `Buy now (${total.toFixed(2).replace(".", ",") + "€"})`;
-  basketDialogRef.showModal();
-  basketDialogRef.classList.remove("is-hide");
-  basketDialogRef.classList.add("is-visible");
-}
-
-function deleteMeal(index) {
-  const id = shoppingCar[index].id;
-  const button = document.getElementById(id);
-  button.textContent = "Add to basket";
-  button.classList.remove("orange_button_text");
-  shoppingCar[index].amount = 0;
-  shoppingCar.splice(index, 1);
-  openModal();
-  setCountOnCartIcon();
-}
-
 function closeModal(id) {
   const modal = document.getElementById(id);
   if (id === "basketDialog") {
@@ -125,51 +92,97 @@ function closeModal(id) {
   );
 }
 
-function addMealInBasket(mealID) {
-  let meal = structuredClone(myDishes[mealID]);
-  let position = shoppingCar.findIndex((element) => meal.id === element.id);
-  if (position == -1) {
-    meal.amount++;
-    shoppingCar.push(meal);
-  } else {
-    shoppingCar[position].amount++;
-  }
-  setCountOnCartIcon();
-  openModal();
-}
-
 function addMeal(mealID, buttonRef) {
-  let meal = structuredClone(myDishes[mealID]);
-  let position = shoppingCar.findIndex((element) => meal.id === element.id);
-  if (position == -1) {
-    meal.amount++;
-    shoppingCar.push(meal);
-  } else {
-    shoppingCar[position].amount++;
-  }
+  addToBasket(mealID);
   buttonRef.innerHTML = "Added 1";
   buttonRef.classList.add("orange_button_text");
-  setCountOnCartIcon();
+}
+
+function subMeal(index) {
+  shoppingCar[index].amount--;
+  renderBasket();
+}
+
+function deleteMeal(index) {
+  const button = document.getElementById(shoppingCar[index].id);
+  button.textContent = "Add to basket";
+  button.classList.remove("orange_button_text");
+  shoppingCar.splice(index, 1);
+  renderBasket();
 }
 
 function buy() {
-  closeModal("basketDialog");
+  const basketDialogRef = document.getElementById("basketDialog");
+  if (basketDialogRef.open) {
+    closeModal("basketDialog");
+  }
   const orderDialogRef = document.getElementById("orderDialog");
   orderDialogRef.classList.remove("is-hide");
   orderDialogRef.classList.add("is-visible");
   orderDialogRef.showModal();
   clearBasket();
-  setCountOnCartIcon();
 }
 
 function clearBasket() {
   shoppingCar = [];
+  document.querySelectorAll(".pricing button").forEach((button) => {
+    button.textContent = "Add to basket";
+    button.classList.remove("orange_button_text");
+  });
+  renderBasket();
 }
 
-function subMeal(index) {
-  shoppingCar[index].amount--;
-  setCountOnCartIcon();
-  openModal();
+function createEmptyBasket() {
+  return `
+    <div class="emptyContainer">
+      <p class="empty_text">Nothing here yet. Go ahead and choose something delicious!</p>
+      <img src="./assets/icons/shopping_cart_white.svg" alt="Icon eines Einkaufswagen" />
+    </div>
+  `;
+}
+
+function createFilledBasket() {
+  let mealListHtml = "";
+  for (let index = 0; index < shoppingCar.length; index++) {
+    mealListHtml += createBasketList(index);
+  }
+  const subTotal = calcSubtotal();
+  const total = subTotal + DELIVERY_FEE;
+  return `
+    <ul>${mealListHtml}</ul>
+    <div class="summary">
+      <div><p>Subtotal</p><p>${formatPrice(subTotal)}</p></div>
+      <div><p>Delivery fee</p><p>${formatPrice(DELIVERY_FEE)}</p></div>
+      <hr />
+      <div><p>Total</p><p>${formatPrice(total)}</p></div>
+      <button onclick="buy()">Buy now (${formatPrice(total)})</button>
+    </div>
+  `;
+}
+
+function createBasketList(i) {
+  const meal = shoppingCar[i];
+  const deleteIcon = `<img src="./assets/icons/delete.svg" alt="eine Mülltonne" />`;
+  const buttonLeftFromAmount =
+    meal.amount == 1
+      ? `<button onclick="deleteMeal(${i})">${deleteIcon}</button>`
+      : `<button onclick="subMeal(${i})">-</button>`;
+  const trashButtonTopRight =
+    meal.amount > 1 ? `<button onclick="deleteMeal(${i})">${deleteIcon}</button>` : ``;
+  return `
+    <li>
+      ${trashButtonTopRight}
+      <h3>${meal.name}</h3>
+      <div>
+        <div class="meal_count_wrapper">
+          ${buttonLeftFromAmount}
+          <p>${meal.amount}</p>
+          <button onclick="addToBasket(${meal.id})">+</button>
+        </div>
+        <p>${formatPrice(meal.price)}</p>
+      </div>
+    </li>
+  `;
 }
 
 function setCountOnCartIcon() {
@@ -234,19 +247,6 @@ function createMeals(i, currentList) {
       `;
 }
 
-function createBasketList(i, buttonLefFromAmount, trashButtonTopRight) {
-  return `
-          <li>
-            ${trashButtonTopRight}
-            <h3>${shoppingCar[i].name}</h3>
-            <div>
-              <div class="meal_count_wrapper">
-                  ${buttonLefFromAmount}
-                <p>${shoppingCar[i].amount}</p>
-                <button onclick="(addMealInBasket(${shoppingCar[i].id}))">+</button>
-              </div>
-              <p>${shoppingCar[i].price.toFixed(2).replace(".", ",")}€</p>
-            </div>
-          </li>
-  `;
+function formatPrice(value) {
+  return value.toFixed(2).replace(".", ",") + "€";
 }

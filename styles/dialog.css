@@ -220,3 +220,6 @@ dialog h3 {
   display: flex;
   justify-content: flex-end;
 }
+.basket_content {
+  display: contents;
+}
