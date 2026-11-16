@@ -60,6 +60,15 @@
   gap: 10px;
 }
 
+.basket {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: 10px;
+}
+
 ul {
   padding: 0;
   display: flex;

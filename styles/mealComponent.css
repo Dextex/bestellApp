@@ -79,8 +79,6 @@ li > button {
   align-items: center;
   justify-content: center;
   position: relative;
-  box-shadow: 0 0 0 100vmax rgba(231, 108, 31, 1);
-  clip-path: inset(0 -100vmax);
 }
 
 .category_headline > img {

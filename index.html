@@ -43,7 +43,30 @@
     <div class="content_wrapper">
       <main id="main"></main>
       <section class="desktop_basket_wrapper">
-        <div class="basket"></div>
+        <div class="basket">
+          <h2>Your Basket</h2>
+          <div class="emptyContainer" id="emptyContainer">
+            <p class="empty_text">Nothing here yet. Go ahead and choose something delicious!</p>
+            <img src="./assets/icons/shopping_cart_white.svg" alt="Icon eines Einkaufswagen" />
+          </div>
+          <ul id="mealList"></ul>
+          <section id="summary" class="summary">
+            <div>
+              <p>Subtotal</p>
+              <p id="subtotal">36,70 €</p>
+            </div>
+            <div>
+              <p>Delivery fee</p>
+              <p id="deliveryFee">4,99 €</p>
+            </div>
+            <hr />
+            <div>
+              <p>Toal</p>
+              <p id="totalCost">41,69 €</p>
+            </div>
+            <button onclick="buy()" id="buyButton">Buy now (41,69€)</button>
+          </section>
+        </div>
       </section>
     </div>
     <dialog onclick="closeModal('basketDialog')" id="basketDialog" class="basketDialog">
@@ -58,21 +81,7 @@
           <img src="./assets/icons/shopping_cart_white.svg" alt="Icon eines Einkaufswagen" />
         </div>
 
-        <ul id="mealList">
-          <li>
-            <h3>1x Veggie mushroom black burger</h3>
-            <div>
-              <div class="meal_count_wrapper">
-                <button>
-                  <img src="./assets/icons/delete.svg" alt="eine Mülltonne" />
-                </button>
-                <p>1</p>
-                <button>+</button>
-              </div>
-              <p>16,90€</p>
-            </div>
-          </li>
-        </ul>
+        <ul id="mealList"></ul>
         <section id="summary" class="summary">
           <div>
             <p>Subtotal</p>
